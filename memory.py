@@ -39,16 +39,11 @@ chain = LLMChain(
     verbose=True
 )
 
-msg1 = {
-    "input": "Mon nom est David."
-}
-resp1 = chain.invoke(msg1)
+if __name__ == '__main__':
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            break
 
-print(resp1)
-
-msg2 = {
-    "input": "Quel est mon nom ?"
-}
-resp2 = chain.invoke(msg2)
-
-print(resp2)
+        response = chain.invoke(user_input)
+        print("Assistant:", response)
